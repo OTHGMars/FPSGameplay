@@ -156,6 +156,11 @@ singleton GuiControlProfile (HudTextItalicProfile : HudTextNormalProfile)
    fontType = "ArialItalic";
 };
 
+singleton GuiControlProfile (HudTextItalicCenterProfile : HudTextItalicProfile)
+{
+   justify = "center";
+};
+
 singleton GuiControlProfile (HudTextBoldProfile : HudTextNormalProfile)
 {
    fontType = "ArialBold";

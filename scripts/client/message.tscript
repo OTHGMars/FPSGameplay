@@ -45,10 +45,44 @@ function clientCmdChatMessage(%sender, %voice, %pitch, %msgString, %a1, %a2, %a3
 // For ServerMessage messages, the client can install callbacks that will be
 // run, according to the "type" of the message.
 
-function clientCmdServerMessage(%msgType, %msgString, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a10)
+function clientCmdServerMessage(%msgType, %locArgs, %msgString, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a10)
 {
    // Get the message type; terminates at any whitespace.
    %tag = getWord(%msgType, 0);
+
+   // Detag the arguments.
+   //for (%i = 1; %i < 11; %i++)
+      //if (detag(%a[%i]) !$= "")
+         //%a[%i] = detag(%a[%i]);
+   %a1 = detag(%a1);
+   %a2 = detag(%a2);
+   %a3 = detag(%a3);
+   %a4 = detag(%a4);
+   %a5 = detag(%a5);
+   %a6 = detag(%a6);
+   %a7 = detag(%a7);
+   %a8 = detag(%a8);
+   %a9 = detag(%a9);
+   %a10 = detag(%a10);
+
+   // If arguments are localized, get their string values.
+   if (%locArgs)
+   {
+      //for (%i = 1; %i < 11; %i++)
+         //if (L(%a[%i]) !$= "")
+            //%a[%i] = L(%a[%i]);
+      %a1 = (L(%a1) !$= "") ? L(%a1) : %a1;
+      %a2 = (L(%a2) !$= "") ? L(%a2) : %a2;
+      %a3 = (L(%a3) !$= "") ? L(%a3) : %a3;
+      %a4 = (L(%a4) !$= "") ? L(%a4) : %a4;
+      %a5 = (L(%a5) !$= "") ? L(%a5) : %a5;
+      %a6 = (L(%a6) !$= "") ? L(%a6) : %a6;
+      %a7 = (L(%a7) !$= "") ? L(%a7) : %a7;
+      %a8 = (L(%a8) !$= "") ? L(%a8) : %a8;
+      %a9 = (L(%a9) !$= "") ? L(%a9) : %a9;
+      %a10 = (L(%a10) !$= "") ? L(%a10) : %a10;
+   }
+   %msgString = buildString(L(detag(%msgString)), %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9);
 
    // First see if there is a callback installed that doesn't have a type;
    // if so, that callback is always executed when a message arrives.
@@ -102,7 +136,8 @@ function onServerMessage(%a, %b, %c, %d, %e, %f, %g, %h, %i)
 
 function defaultMessageCallback(%msgType, %msgString, %a1, %a2, %a3, %a4, %a5, %a6, %a7, %a8, %a9, %a10)
 {
-   onServerMessage(detag(%msgString));
+   //onServerMessage(detag(%msgString));
+   onServerMessage(%msgString);
 }
 
 // Register that default message handler now.

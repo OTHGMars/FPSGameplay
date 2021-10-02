@@ -63,11 +63,11 @@ function ProximityMineData::damage( %this, %obj, %position, %source, %amount, %d
 function sendMsgClientKilled_MineDamage( %msgType, %client, %sourceClient, %damLoc )
 {
    if ( %sourceClient $= "" )             // editor placed mine
-      messageAll( %msgType, '%1 was blown up!', %client.playerName );
+      messageAll( %msgType, false, 'servmsg_minedmg', %client.playerName );
    else if ( %sourceClient == %client )   // own mine
-      messageAll( %msgType, '%1 stepped on his own mine!', %client.playerName );
+      messageAll( %msgType, false, 'servmsg_mineself', %client.playerName );
    else                                   // enemy placed mine
-      messageAll( %msgType, '%1 was blown up by %2!', %client.playerName, %sourceClient.playerName );
+      messageAll( %msgType, false, 'servmsg_mineother', %client.playerName, %sourceClient.playerName );
 }
 
 // ----------------------------------------------------------------------------

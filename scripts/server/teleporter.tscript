@@ -247,5 +247,5 @@ function TeleporterTrigger::teleFrag(%this, %player, %exit)
 // Customized kill message for telefrag deaths
 function sendMsgClientKilled_Telefrag(%msgType, %client, %sourceClient, %damLoc)
 {
-   messageAll(%msgType, '%1 was telefragged by %2!', %client.playerName, %sourceClient.playerName);
+   messageAll(%msgType, false, 'servmsg_killtele', %client.playerName, %sourceClient.playerName);
 }

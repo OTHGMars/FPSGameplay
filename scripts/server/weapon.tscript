@@ -48,9 +48,9 @@ function Weapon::onUse(%data, %obj)
       if (%obj.client)
       {
          if (%data.description !$= "")
-            messageClient(%obj.client, 'MsgWeaponUsed', '\c0%1 selected.', %data.description);
+            messageClient(%obj.client, 'MsgWeaponUsed', true, 'servmsg_weapselname', "desc_" @ %data.name);
          else
-            messageClient(%obj.client, 'MsgWeaponUsed', '\c0Weapon selected');
+            messageClient(%obj.client, 'MsgWeaponUsed', false, 'servmsg_weapsel');
       }
       
       // If this is a Player class object then allow the weapon to modify allowed poses

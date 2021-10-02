@@ -8,6 +8,7 @@ $SPAM_PROTECTION_PERIOD     = 10000;
 $SPAM_MESSAGE_THRESHOLD     = 4;
 $SPAM_PENALTY_PERIOD        = 10000;
 $SPAM_MESSAGE               = '\c3FLOOD PROTECTION:\cr You must wait another %1 seconds.';
+$SPAM_LOC_TAG               = 'servmsg_chatspam';
 
 function GameConnection::spamMessageTimeout(%this)
 {
@@ -35,7 +36,7 @@ function spamAlert(%client)
    if(%client.isSpamming)
    {
       %wait = mFloor(($SPAM_PENALTY_PERIOD - (getSimTime() - %client.spamProtectStart)) / 1000);
-      messageClient(%client, "", $SPAM_MESSAGE, %wait);
+      messageClient(%client, "", false, $SPAM_LOC_TAG, %wait);
       return(true);
    }
 

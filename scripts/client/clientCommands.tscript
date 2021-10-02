@@ -56,7 +56,8 @@ function clientCmdSetAmmoAmountHud(%amount, %amountInClips)
    else
    {
       AmmoAmount.setVisible(true);
-      AmmoAmount.setText("Ammo: " @ %amount @ "/" @ %amountInClips);
+      //AmmoAmount.setText("Ammo: " @ %amount @ "/" @ %amountInClips);
+      AmmoAmount.setText(L("ammo_header") SPC %amount @ "/" @ %amountInClips);
    }
 }
 
@@ -71,7 +72,8 @@ function clientCmdRefreshWeaponHUD(%amount, %preview, %ret, %zoomRet, %amountInC
    else
    {
       AmmoAmount.setVisible(true);
-      AmmoAmount.setText("Ammo: " @ %amount @ "/" @ %amountInClips);
+      //AmmoAmount.setText("Ammo: " @ %amount @ "/" @ %amountInClips);
+      AmmoAmount.setText(L("ammo_header") SPC %amount @ "/" @ %amountInClips);
    }
 
    if (%preview $= "")

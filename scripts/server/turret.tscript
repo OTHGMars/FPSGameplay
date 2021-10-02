@@ -287,11 +287,11 @@ function TurretShape::damage(%this, %sourceObject, %position, %damage, %damageTy
 function sendMsgClientKilled_TurretDamage( %msgType, %client, %sourceClient, %damLoc )
 {
    if ( %sourceClient $= "" )             // editor placed turret
-      messageAll( %msgType, '%1 was shot down by a turret!', %client.playerName );
+      messageAll( %msgType, false, 'servmsg_turretdmg', %client.playerName );
    else if ( %sourceClient == %client )   // own mine
-      messageAll( %msgType, '%1 kill by his own turret!', %client.playerName );
+      messageAll( %msgType, false, 'servmsg_turretself', %client.playerName );
    else                                   // enemy placed mine
-      messageAll( %msgType, '%1 was killed by a turret of %2!', %client.playerName, %sourceClient.playerName );
+      messageAll( %msgType, false, 'servmsg_turretother', %client.playerName, %sourceClient.playerName );
 }
 
 // ----------------------------------------------------------------------------

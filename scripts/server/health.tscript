@@ -38,7 +38,7 @@ function HealthPatch::onCollision(%this, %obj, %col)
 
       %obj.respawn();
       if (%col.client)
-         messageClient(%col.client, 'MsgHealthPatchUsed', '\c2Health Patch Applied');
+         messageClient(%col.client, 'MsgHealthPatchUsed', false, 'servmsg_healthused');
       serverPlay3D(HealthUseSound, %obj.getTransform());
    }
 }

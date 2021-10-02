@@ -1,0 +1,103 @@
+//==============================================================================
+// Localized text file for FPSGameplay module.
+// Lines beginning with '/' or '#' are comment lines and are ignored. All other
+// lines must take the form:
+// text_tag = Localized text.
+// The text tag must begin on the first character of the line and cannot contain
+// whitespace. Following the text tag is a single space, an equal sign then 
+// another space. All text following the second space to the end of the line is
+// the localized text replacement. Each localized text string cannot be more
+// than 2048 bytes including the null terminator. This is not 'characters',
+// multi-byte utf8 encoding can use more than one byte per character.
+//==============================================================================
+
+//------------------------------------------------------------------------------
+// Do not translate any of these character types:
+// \c0 - \c9 are character color codes.
+// <...> Text within <> are markup language directives for GuiMLTextCtrl.
+// %1 - %9 are placeholders for the string builder.
+
+//------------------------------------------------------------------------------
+// Level names and descriptions
+level_name_empty_terrain = Empty Terrain
+level_desc_empty_terrain = An empty terrain ready to be populated with Torque objects.
+level_name_emptylevel = Empty Level
+level_desc_emptylevel = A blank room ready to be populated with Torque objects.
+level_name_outpost = Outpost
+level_desc_outpost = A 'one of everything' test level that demonstrates lots of stock classes.
+
+//------------------------------------------------------------------------------
+// Player List Gui
+score = Score
+kills = Kills
+deaths = Deaths
+
+//------------------------------------------------------------------------------
+// HUD
+ammo_header = Ammo:
+
+//------------------------------------------------------------------------------
+// Inventory item pickup names and descriptions.
+puname_lurkerclip = a Lurker clip
+puname_lurkerammo = Lurker ammo
+puname_lurker = Lurker rifle
+desc_lurker = Lurker
+puname_lurkergrenadeammo = Lurker grenade ammo
+puname_lurkergrenadelauncher = a Lurker grenade launcher
+desc_lurkergrenadelauncher = Lurker Grenade Launcher
+puname_proxmine = a proximity mine
+desc_proxmine = Proximity Mine
+puname_ryderclip = a Ryder clip
+puname_ryderammo = Ryder bullet
+puname_ryder = Ryder pistol
+desc_ryder = Ryder
+puname_aiturretammo = turret ammo
+puname_aiturrethead = an AI turret head
+desc_aiturrethead = AI Turret Head
+puname_healthkitsmall = a small health kit
+puname_healthkitpatch = a health patch
+puname_lurkerclip = Lurker clip
+puname_deployableturret = a deployable turret
+desc_deployableturret = Deployable Turret
+
+//------------------------------------------------------------------------------
+// Server messages
+// Chat spam flood message. %1 is the number of seconds.
+servmsg_chatspam = \c3FLOOD PROTECTION:\c0 You must wait another %1 seconds.
+// Player has joined a server. %1 is players own name.
+servmsg_joinself = \c2Welcome to the Torque demo app %1.
+// A remote player has joined the server. %1 is the joining players name.
+servmsg_joinother = \c1%1 joined the game.
+servmsg_healthused = \c2Health Patch Applied
+// Pickup message. %1 is a pick up name from inventory list above
+servmsg_itempick = \c0You picked up %1
+// Message displayed when trying to exit a moving vehicle. %1 is the vehicle nametag.
+servmsg_nomoveexit = \c2Cannot exit %1 while moving.
+// Weapon selected message. %1 is the weapon description above.
+servmsg_weapselname = \c0%1 selected.
+servmsg_weapsel = \c0Weapon selected
+
+// Kill/Death messages. %1 is the player that died. %2 is the player the scored the kill.
+servmsg_killimpact = %1 fell to his death!
+servmsg_killself = %1 takes his own life!
+servmsg_kill_ff = %1 killed by %2 - friendly fire!
+servmsg_killother = %1 gets nailed by %2!
+servmsg_minedmg = %1 was blown up!
+servmsg_mineself = %1 stepped on his own mine!
+servmsg_mineother = %1 was blown up by %2!
+servmsg_killtele = %1 was telefragged by %2!
+servmsg_turretdmg = %1 was shot down by a turret!
+servmsg_turretself = %1 was killed by his own turret!
+servmsg_turretother = %1 was killed by a turret of %2!
+
+//------------------------------------------------------------------------------
+// recordingsDlg %1 is the file name
+recording_start = \c4Recording to file [\c2%1\c4].
+recording_fail = \c3 *** Failed to record to file [\c2%1\c3].
+recording_done = \c4Recording file [\c2%1\c4] finished.
+movierec_start = \c4Recording movie file to [\c2%1.ogv\c4].
+movierec_done = \c4Recording movie file finished.
+// Message box when playback fails. %1 is the .rec file path.
+playbackfail_title = Playback Failed
+playbackfail_msg = Demo playback failed for file %1.
+

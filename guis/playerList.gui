@@ -124,6 +124,7 @@ $guiContent = new GuiControl(PlayerListGui) {
             AnchorLeft = "1";
             AnchorRight = "0";
             text = "Score";
+            textID = "score";
             maxLength = "255";
          };
          new GuiTextCtrl() {
@@ -147,6 +148,7 @@ $guiContent = new GuiControl(PlayerListGui) {
             AnchorLeft = "1";
             AnchorRight = "0";
             text = "Kills";
+            textID = "kills";
             maxLength = "255";
          };
          new GuiTextCtrl() {
@@ -170,6 +172,7 @@ $guiContent = new GuiControl(PlayerListGui) {
             AnchorLeft = "1";
             AnchorRight = "0";
             text = "Deaths";
+            textID = "deaths";
             maxLength = "255";
          };
       };

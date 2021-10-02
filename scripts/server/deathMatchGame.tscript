@@ -198,7 +198,7 @@ function DeathMatchGame::onClientEnterGame(%this, %client)
       if ((%other != %client))
       {
          // These should be "silent" versions of these messages...
-         messageClient(%client, 'MsgClientJoin', "",
+         messageClient(%client, 'MsgClientJoin', false, "",
             %other.playerName,
             %other,
             %other.sendGuid,
@@ -214,7 +214,7 @@ function DeathMatchGame::onClientEnterGame(%this, %client)
 
    // Inform the client we've joined up
    messageClient(%client,
-      'MsgClientJoin', '\c2Welcome to the Torque demo app %1.',
+      'MsgClientJoin', false, 'servmsg_joinself',
       %client.playerName,
       %client,
       %client.sendGuid,
@@ -227,7 +227,7 @@ function DeathMatchGame::onClientEnterGame(%this, %client)
       %client.isSuperAdmin);
 
    // Inform all the other clients of the new guy
-   messageAllExcept(%client, -1, 'MsgClientJoin', '\c1%1 joined the game.',
+   messageAllExcept(%client, -1, 'MsgClientJoin', false, 'servmsg_joinother',
       %client.playerName,
       %client,
       %client.sendGuid,
@@ -634,7 +634,7 @@ function DeathMatchGame::incKills(%this, %client, %kill, %dontMessageAll)
    %client.kills += %kill;
    
    if( !%dontMessageAll )
-      messageAll('MsgClientScoreChanged', "", %client.score, %client.kills, %client.deaths, %client);
+      messageAll('MsgClientScoreChanged', false, "", %client.score, %client.kills, %client.deaths, %client);
 }
 
 function DeathMatchGame::incDeaths(%this, %client, %death, %dontMessageAll)
@@ -642,7 +642,7 @@ function DeathMatchGame::incDeaths(%this, %client, %death, %dontMessageAll)
    %client.deaths += %death;
 
    if( !%dontMessageAll )
-      messageAll('MsgClientScoreChanged', "", %client.score, %client.kills, %client.deaths, %client);
+      messageAll('MsgClientScoreChanged', false, "", %client.score, %client.kills, %client.deaths, %client);
 }
 
 function DeathMatchGame::incScore(%this, %client, %score, %dontMessageAll)
@@ -650,7 +650,7 @@ function DeathMatchGame::incScore(%this, %client, %score, %dontMessageAll)
    %client.score += %score;
 
    if( !%dontMessageAll )
-      messageAll('MsgClientScoreChanged', "", %client.score, %client.kills, %client.deaths, %client);
+      messageAll('MsgClientScoreChanged', false, "", %client.score, %client.kills, %client.deaths, %client);
 }
 
 function DeathMatchGame::getScore(%this, %client) { return %client.score; }
@@ -679,13 +679,13 @@ function DeathMatchGame::getTeamScore(%this, %client)
 // Customized kill message for falling deaths
 function sendMsgClientKilled_Impact( %msgType, %client, %sourceClient, %damLoc )
 {
-   messageAll( %msgType, '%1 fell to his death!', %client.playerName );
+   messageAll( %msgType, false, 'servmsg_killimpact', %client.playerName );
 }
 
 // Customized kill message for suicides
 function sendMsgClientKilled_Suicide( %msgType, %client, %sourceClient, %damLoc )
 {
-   messageAll( %msgType, '%1 takes his own life!', %client.playerName );
+   messageAll( %msgType, false, 'servmsg_killself', %client.playerName );
 }
 
 // Default death message
@@ -694,9 +694,9 @@ function sendMsgClientKilled_Default( %msgType, %client, %sourceClient, %damLoc 
    if ( %sourceClient == %client )
       sendMsgClientKilled_Suicide(%client, %sourceClient, %damLoc);
    else if ( %sourceClient.team !$= "" && %sourceClient.team $= %client.team )
-      messageAll( %msgType, '%1 killed by %2 - friendly fire!', %client.playerName, %sourceClient.playerName );
+      messageAll( %msgType, false, 'servmsg_kill_ff', %client.playerName, %sourceClient.playerName );
    else
-      messageAll( %msgType, '%1 gets nailed by %2!', %client.playerName, %sourceClient.playerName );
+      messageAll( %msgType, false, 'servmsg_killother', %client.playerName, %sourceClient.playerName );
 }
 
 // ----------------------------------------------------------------------------

@@ -64,7 +64,9 @@ function StartSelectedDemo()
    }
    else 
    {
-      MessageBoxOK("Playback Failed", "Demo playback failed for file '" @ %file @ "'.");
+      //MessageBoxOK("Playback Failed", "Demo playback failed for file '" @ %file @ "'.");
+      %message = buildString(L("playbackfail_msg"), %file);
+      MessageBoxOK(L("playbackfail_title"), %message);
       if (isObject(ServerConnection)) {
          ServerConnection.delete();
       }
@@ -97,7 +99,8 @@ function startDemoRecord()
 
    $DemoFileName = %file;
 
-   ChatHud.AddLine( "\c4Recording to file [\c2" @ $DemoFileName @ "\cr].");
+   //ChatHud.AddLine( "\c4Recording to file [\c2" @ $DemoFileName @ "\cr].");
+   ChatHud.AddLine(buildString(L("recording_start"), $DemoFileName));
 
    ServerConnection.startRecording($DemoFileName);
 
@@ -105,7 +108,8 @@ function startDemoRecord()
    if(!ServerConnection.isDemoRecording())
    {
       deleteFile($DemoFileName);
-      ChatHud.AddLine( "\c3 *** Failed to record to file [\c2" @ $DemoFileName @ "\cr].");
+      //ChatHud.AddLine( "\c3 *** Failed to record to file [\c2" @ $DemoFileName @ "\cr].");
+      ChatHud.AddLine(buildString(L("recording_fail"), $DemoFileName));
       $DemoFileName = "";
    }
 }
@@ -115,7 +119,8 @@ function stopDemoRecord()
    // make sure we are recording
    if(ServerConnection.isDemoRecording())
    {
-      ChatHud.AddLine( "\c4Recording file [\c2" @ $DemoFileName @ "\cr] finished.");
+      //ChatHud.AddLine( "\c4Recording file [\c2" @ $DemoFileName @ "\cr] finished.");
+      ChatHud.AddLine(buildString(L("recording_done"), $DemoFileName));
       ServerConnection.stopRecording();
    }
 }

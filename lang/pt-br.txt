@@ -1,0 +1,160 @@
+//==============================================================================
+// Localized text file for FPSGameplay module.
+// Lines beginning with '/' or '#' are comment lines and are ignored. All other
+// lines must take the form:
+// text_tag = Localized text.
+// The text tag must begin on the first character of the line and cannot contain
+// whitespace. Following the text tag is a single space, an equal sign then 
+// another space. All text following the second space to the end of the line is
+// the localized text replacement. Each localized text string cannot be more
+// than 2048 bytes including the null terminator. This is not 'characters',
+// multi-byte utf8 encoding can use more than one byte per character.
+//==============================================================================
+
+//------------------------------------------------------------------------------
+// Do not translate any of these character types:
+// \c0 - \c9 are character color codes.
+// <...> Text within <> are markup language directives for GuiMLTextCtrl.
+// %1 - %9 are placeholders for the string builder.
+
+//------------------------------------------------------------------------------
+// Level names and descriptions
+#[eng-us] level_name_empty_terrain = Empty Terrain
+level_name_empty_terrain = 
+#[eng-us] level_desc_empty_terrain = An empty terrain ready to be populated with Torque objects.
+level_desc_empty_terrain = 
+#[eng-us] level_name_emptylevel = Empty Level
+level_name_emptylevel = 
+#[eng-us] level_desc_emptylevel = A blank room ready to be populated with Torque objects.
+level_desc_emptylevel = 
+#[eng-us] level_name_outpost = Outpost
+level_name_outpost = 
+#[eng-us] level_desc_outpost = A 'one of everything' test level that demonstrates lots of stock classes.
+level_desc_outpost = 
+
+//------------------------------------------------------------------------------
+// Player List Gui
+#[eng-us] score = Score
+score = 
+#[eng-us] kills = Kills
+kills = 
+#[eng-us] deaths = Deaths
+deaths = 
+
+//------------------------------------------------------------------------------
+// HUD
+#[eng-us] ammo_header = Ammo:
+ammo_header = 
+
+//------------------------------------------------------------------------------
+// Inventory item pickup names and descriptions.
+#[eng-us] puname_lurkerclip = a Lurker clip
+puname_lurkerclip = 
+#[eng-us] puname_lurkerammo = Lurker ammo
+puname_lurkerammo = 
+#[eng-us] puname_lurker = Lurker rifle
+puname_lurker = 
+#[eng-us] desc_lurker = Lurker
+desc_lurker = 
+#[eng-us] puname_lurkergrenadeammo = Lurker grenade ammo
+puname_lurkergrenadeammo = 
+#[eng-us] puname_lurkergrenadelauncher = a Lurker grenade launcher
+puname_lurkergrenadelauncher = 
+#[eng-us] desc_lurkergrenadelauncher = Lurker Grenade Launcher
+desc_lurkergrenadelauncher = 
+#[eng-us] puname_proxmine = a proximity mine
+puname_proxmine = 
+#[eng-us] desc_proxmine = Proximity Mine
+desc_proxmine = 
+#[eng-us] puname_ryderclip = a Ryder clip
+puname_ryderclip = 
+#[eng-us] puname_ryderammo = Ryder bullet
+puname_ryderammo = 
+#[eng-us] puname_ryder = Ryder pistol
+puname_ryder = 
+#[eng-us] desc_ryder = Ryder
+desc_ryder = 
+#[eng-us] puname_aiturretammo = turret ammo
+puname_aiturretammo = 
+#[eng-us] puname_aiturrethead = an AI turret head
+puname_aiturrethead = 
+#[eng-us] desc_aiturrethead = AI Turret Head
+desc_aiturrethead = 
+#[eng-us] puname_healthkitsmall = a small health kit
+puname_healthkitsmall = 
+#[eng-us] puname_healthkitpatch = a health patch
+puname_healthkitpatch = 
+#[eng-us] puname_lurkerclip = Lurker clip
+puname_lurkerclip = 
+#[eng-us] puname_deployableturret = a deployable turret
+puname_deployableturret = 
+#[eng-us] desc_deployableturret = Deployable Turret
+desc_deployableturret = 
+
+//------------------------------------------------------------------------------
+// Server messages
+// Chat spam flood message. %1 is the number of seconds.
+#[eng-us] servmsg_chatspam = \c3FLOOD PROTECTION:\c0 You must wait another %1 seconds.
+servmsg_chatspam = 
+// Player has joined a server. %1 is players own name.
+#[eng-us] servmsg_joinself = \c2Welcome to the Torque demo app %1.
+servmsg_joinself = 
+// A remote player has joined the server. %1 is the joining players name.
+#[eng-us] servmsg_joinother = \c1%1 joined the game.
+servmsg_joinother = 
+#[eng-us] servmsg_healthused = \c2Health Patch Applied
+servmsg_healthused = 
+// Pickup message. %1 is a pick up name from inventory list above
+#[eng-us] servmsg_itempick = \c0You picked up %1
+servmsg_itempick = 
+// Message displayed when trying to exit a moving vehicle. %1 is the vehicle nametag.
+#[eng-us] servmsg_nomoveexit = \c2Cannot exit %1 while moving.
+servmsg_nomoveexit = 
+// Weapon selected message. %1 is the weapon description above.
+#[eng-us] servmsg_weapselname = \c0%1 selected.
+servmsg_weapselname = 
+#[eng-us] servmsg_weapsel = \c0Weapon selected
+servmsg_weapsel = 
+
+// Kill/Death messages. %1 is the player that died. %2 is the player the scored the kill.
+#[eng-us] servmsg_killimpact = %1 fell to his death!
+servmsg_killimpact = 
+#[eng-us] servmsg_killself = %1 takes his own life!
+servmsg_killself = 
+#[eng-us] servmsg_kill_ff = %1 killed by %2 - friendly fire!
+servmsg_kill_ff = 
+#[eng-us] servmsg_killother = %1 gets nailed by %2!
+servmsg_killother = 
+#[eng-us] servmsg_minedmg = %1 was blown up!
+servmsg_minedmg = 
+#[eng-us] servmsg_mineself = %1 stepped on his own mine!
+servmsg_mineself = 
+#[eng-us] servmsg_mineother = %1 was blown up by %2!
+servmsg_mineother = 
+#[eng-us] servmsg_killtele = %1 was telefragged by %2!
+servmsg_killtele = 
+#[eng-us] servmsg_turretdmg = %1 was shot down by a turret!
+servmsg_turretdmg = 
+#[eng-us] servmsg_turretself = %1 was killed by his own turret!
+servmsg_turretself = 
+#[eng-us] servmsg_turretother = %1 was killed by a turret of %2!
+servmsg_turretother = 
+
+//------------------------------------------------------------------------------
+// recordingsDlg %1 is the file name
+#[eng-us] recording_start = \c4Recording to file [\c2%1\c4].
+recording_start = 
+#[eng-us] recording_fail = \c3 *** Failed to record to file [\c2%1\c3].
+recording_fail = 
+#[eng-us] recording_done = \c4Recording file [\c2%1\c4] finished.
+recording_done = 
+#[eng-us] movierec_start = \c4Recording movie file to [\c2%1.ogv\c4].
+movierec_start = 
+#[eng-us] movierec_done = \c4Recording movie file finished.
+movierec_done = 
+// Message box when playback fails. %1 is the .rec file path.
+#[eng-us] playbackfail_title = Playback Failed
+playbackfail_title = 
+#[eng-us] playbackfail_msg = Demo playback failed for file %1.
+playbackfail_msg = 
+

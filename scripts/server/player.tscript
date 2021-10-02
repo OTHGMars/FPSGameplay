@@ -147,7 +147,7 @@ function PlayerData::doDismount(%this, %obj, %forced)
       //%obj.vehicleTurret = "";
    }
    else
-      messageClient(%obj.client, 'msgUnmount', '\c2Cannot exit %1 while moving.', %vehicle.getDataBlock().nameTag);
+      messageClient(%obj.client, 'msgUnmount', false, 'servmsg_nomoveexit', %vehicle.getDataBlock().nameTag);
 }
 
 //----------------------------------------------------------------------------

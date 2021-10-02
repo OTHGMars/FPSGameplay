@@ -70,7 +70,8 @@ function recordMovie(%movieName, %fps, %encoder)
    %resolution = Canvas.getVideoMode();
    
    // Start the movie recording
-   ChatHud.AddLine( "\c4Recording movie file to [\c2" @ %movieName @ "\cr].ogv.");
+   //ChatHud.AddLine( "\c4Recording movie file to [\c2" @ %movieName @ "\cr].ogv.");
+   ChatHud.AddLine(buildString(L("recording_done"), %movieName));
    echo("Recording movie to: " @ %movieName);   
    startVideoCapture(Canvas, %movieName, %encoder, %fps); 
    
@@ -80,7 +81,8 @@ function recordMovie(%movieName, %fps, %encoder)
 function stopMovie()
 {
    // Stop the current recording
-   ChatHud.AddLine( "\c4Recording movie file finished.");
+   //ChatHud.AddLine( "\c4Recording movie file finished.");
+   ChatHud.AddLine(L("movierec_done"));
    echo("Stopped movie recording");
    
    stopVideoCapture();
